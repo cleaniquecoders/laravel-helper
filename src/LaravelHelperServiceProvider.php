@@ -11,6 +11,15 @@ class LaravelHelperServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /*
+         * Configuration
+         */
+        $this->publishes([
+            __DIR__ . '/../config/helper.php'  => config_path('helper.php'),
+        ], 'laravel-helper');
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/helper.php', 'helper'
+        );
     }
 
     /**
