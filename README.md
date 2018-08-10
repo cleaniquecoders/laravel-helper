@@ -1,16 +1,16 @@
 
-[![Build Status](https://travis-ci.org/cleanique-coders/laravel-helper.svg?branch=master)](https://travis-ci.org/cleanique-coders/laravel-helper) [![Latest Stable Version](https://poser.pugx.org/cleanique-coders/laravel-helper/v/stable)](https://packagist.org/packages/cleanique-coders/laravel-helper) [![Total Downloads](https://poser.pugx.org/cleanique-coders/laravel-helper/downloads)](https://packagist.org/packages/cleanique-coders/laravel-helper) [![License](https://poser.pugx.org/cleanique-coders/laravel-helper/license)](https://packagist.org/packages/cleanique-coders/laravel-helper)
+[![Build Status](https://travis-ci.org/cleaniquecoders/laravel-helper.svg?branch=master)](https://travis-ci.org/cleaniquecoders/laravel-helper) [![Latest Stable Version](https://poser.pugx.org/cleaniquecoders/laravel-helper/v/stable)](https://packagist.org/packages/cleaniquecoders/laravel-helper) [![Total Downloads](https://poser.pugx.org/cleaniquecoders/laravel-helper/downloads)](https://packagist.org/packages/cleaniquecoders/laravel-helper) [![License](https://poser.pugx.org/cleaniquecoders/laravel-helper/license)](https://packagist.org/packages/cleaniquecoders/laravel-helper)
 
 ## About Your Package
 
-Tell people about your package
+A collection of helpers for your application.
 
 ## Installation
 
-1. In order to install `cleanique-coders/laravel-helper` in your Laravel project, just run the *composer require* command from your terminal:
+1. In order to install `cleaniquecoders/laravel-helper` in your Laravel project, just run the *composer require* command from your terminal:
 
 ```
-$ composer require cleanique-coders/laravel-helper
+$ composer require cleaniquecoders/laravel-helper
 ```
 
 2. Then in your `config/app.php` add the following to the providers array:
@@ -25,7 +25,31 @@ CleaniqueCoders\LaravelHelper\LaravelHelperServiceProvider::class,
 'LaravelHelper' => CleaniqueCoders\LaravelHelper\LaravelHelperFacade::class,
 ```
 
+4. Publish Laravel Helper config file:
+
+```
+$ php artisan vendor:publish --tag=laravel-helper
+```
+
 ## Usage
+
+*Generate Sequence*
+
+`generate_sequence(313)`  will generate `000313`. This is quiet useful if you want to standardised the generate sequence number.
+
+*Abbreviation*
+
+`abbrv('your words')` will generate `YRWDS`.
+
+You may configure `abbrv()` helper via helper config file.
+
+*Fully Qualified Class Name, FQCN*
+
+`fqcn($user)` - will return `App\User`. This will be useful if you dealing with Polymorph relationship.
+
+*Slugged Name of FQCN*
+
+`str_slug_fqcn($user)` - will generate `app-user`, kebab case of the FQCN. This will be useful if you want to have sluggable name of an object and use it as identifier in the database, instead of the FQCN.
 
 ## Test
 
@@ -39,7 +63,7 @@ $ vendor/bin/phpunit -v --coverage-text --colors=never --stderr
 
 ## Contributing
 
-Thank you for considering contributing to the `cleanique-coders/laravel-helper`!
+Thank you for considering contributing to the `cleaniquecoders/laravel-helper`!
 
 ### Bug Reports
 
@@ -51,7 +75,7 @@ Remember, bug reports are created in the hope that others with the same problem 
 
 ## Coding Style
 
-`cleanique-coders/laravel-helper` follows the PSR-2 coding standard and the PSR-4 autoloading standard. 
+`cleaniquecoders/laravel-helper` follows the PSR-2 coding standard and the PSR-4 autoloading standard. 
 
 You may use PHP CS Fixer in order to keep things standardised. PHP CS Fixer configuration can be found in `.php_cs`.
 
