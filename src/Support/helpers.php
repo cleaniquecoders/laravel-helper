@@ -19,16 +19,16 @@ if (! function_exists('generate_sequence')) {
 if (! function_exists('abbrv')) {
     function abbrv($value, $unique_characters = true)
     {
-        if(true === config('helper.abbrv.remove_non_alphanumeric')) {
+        if (true === config('helper.abbrv.remove_non_alphanumeric')) {
             $value = preg_replace('/[^A-Za-z0-9 ]/', '', $value);
         }
-        
+
         $removeVowels = str_replace(
             config('helper.abbrv.remove_vowels'),
             '',
             $value);
 
-        if(true === config('helper.abbrv.to_uppercase')) {
+        if (true === config('helper.abbrv.to_uppercase')) {
             $value = strtoupper($value);
         }
 
