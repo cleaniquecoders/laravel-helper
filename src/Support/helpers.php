@@ -23,7 +23,7 @@ if (! function_exists('abbrv')) {
             $value = preg_replace('/[^A-Za-z0-9 ]/', '', $value);
         }
 
-        $removeVowels = str_replace(
+        $value = str_replace(
             config('helper.abbrv.remove_vowels'),
             '',
             $value);

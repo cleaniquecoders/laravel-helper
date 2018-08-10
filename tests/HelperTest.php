@@ -25,4 +25,18 @@ class HelperTest extends TestCase
             $this->assertTrue(function_exists($helper));
         }
     }
+
+    /** @test */
+    public function abbrv_test()
+    {
+        $data = [
+            'your word' => 'YRWD',
+            'Cleanique Coders' => 'CLNQDRS',
+            'Laravel Helper' => 'LRVHP',
+        ];
+        foreach ($data as $word => $expected) {
+            $actual = abbrv($word);
+            $this->assertSame($expected, $actual);
+        }
+    }
 }
