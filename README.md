@@ -37,19 +37,83 @@ $ php artisan vendor:publish --tag=laravel-helper
 
 `generate_sequence(313)`  will generate `000313`. This is quiet useful if you want to standardised the generate sequence number.
 
-*Abbreviation*
+**Abbreviation**
 
 `abbrv('your words')` will generate `YRWDS`.
 
 You may configure `abbrv()` helper via helper config file.
 
-*Fully Qualified Class Name, FQCN*
+**Fully Qualified Class Name, FQCN**
 
 `fqcn($user)` - will return `App\User`. This will be useful if you dealing with Polymorph relationship.
 
-*Slugged Name of FQCN*
+**Slugged Name of FQCN**
 
 `str_slug_fqcn($user)` - will generate `app-user`, kebab case of the FQCN. This will be useful if you want to have sluggable name of an object and use it as identifier in the database, instead of the FQCN.
+
+**Notification**
+
+You can simply send notification to user by calling `notify()` helper.
+
+```php
+// send by id
+notify(1)
+    ->subject('Laravel Helper')
+    ->message('Sending notification via notify helper is awesome.')->send();
+
+// you can send by email, but require to specify column name on second argument
+notify('nasrulhazim.m@gmail.com', 'email')
+    ->subject('Laravel Helper')
+    ->message('Sending notification via notify helper is awesome.')
+    ->send();
+
+// Send with Subject and Message, CC and BCC
+$cc = \App\Models\User::whereIn('id', [2,3,4])->get()->pluck('email')->toArray();
+$bcc = \App\Models\User::whereIn('id', [5,6,7])->get()->pluck('email')->toArray();
+
+notify(1)
+   ->subject('Laravel Helper')
+   ->message('Send notification via notify() helper is awesome and easy.')
+   ->cc($cc)
+   ->bcc($bcc)
+   ->send();
+
+// Send Notification with Subject, Message, Link.
+notify(1)
+   ->subject('Laravel Helper')
+   ->message('Send notification via notify() helper is awesome and easy.')
+   ->link('https://google.com')
+   ->send();
+
+// Send Notification with Subject, Message, Link and Custom Link Label.
+notify(1)
+   ->subject('Laravel Helper')
+   ->message('Send notification via notify() helper is awesome and easy.')
+   ->link('https://google.com')
+   ->link_label('Google')
+   ->send();
+
+// Send Notification with Subject, Message, Link, Custom Link Label and Custom Template.
+notify(1)
+   ->subject('Laravel Helper')
+   ->message('Send notification via notify() helper is awesome and easy.')
+   ->link('https://google.com')
+   ->link_label('Google')
+   ->template('mail.custom')
+   ->send();
+
+// Send Notification with Subject, Message, Link, Custom Link Label, Custom Template and Mixed Data.
+notify(1)
+   ->subject('Laravel Helper')
+   ->message('Send notification via notify() helper is awesome and easy.')
+   ->link('https://google.com')
+   ->link_label('Google')
+   ->template('mail.custom')
+   ->data($anything)
+   ->send();
+```
+
+> You can set anything to data - array, object, string, etc.
 
 ## Test
 
