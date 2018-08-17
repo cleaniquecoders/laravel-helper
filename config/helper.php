@@ -9,4 +9,7 @@ return [
         'to_uppercase'            => true,
         'unique_characters'       => true,
     ],
+    'models' => [
+        'user' => \App\User::class,
+    ],
 ];

@@ -16,10 +16,18 @@ class LaravelHelperServiceProvider extends ServiceProvider
          */
         $this->publishes([
             __DIR__ . '/../config/helper.php' => config_path('helper.php'),
-        ], 'laravel-helper');
+        ], 'laravel-helper-config');
         $this->mergeConfigFrom(
             __DIR__ . '/../config/helper.php', 'helper'
         );
+
+        /*
+         * View
+         */
+        $this->loadViewsFrom(__DIR__ . '/../views', 'laravel-helper-view');
+        $this->publishes([
+            __DIR__ . '/../views' => resource_path('views/vendor/laravel-helper'),
+        ]);
     }
 
     /**

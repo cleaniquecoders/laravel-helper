@@ -67,3 +67,13 @@ if (! function_exists('str_slug_fqcn')) {
         return Str::kebab(fqcn($object));
     }
 }
+
+/*
+ * Send Notification To User
+ */
+if (! function_exists('notify')) {
+    function notify($identifier, $column = 'id')
+    {
+        return \CleaniqueCoders\LaravelHelper\Services\NotificationService::make($identifier, $column);
+    }
+}
