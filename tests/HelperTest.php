@@ -19,7 +19,7 @@ class HelperTest extends TestCase
     /** @test */
     public function it_has_all_helpers()
     {
-        $helpers = ['abbrv', 'generate_sequence', 'fqcn', 'str_slug_fqcn'];
+        $helpers = ['abbrv', 'generate_sequence', 'fqcn', 'str_slug_fqcn', 'notify', 'user', 'minify'];
 
         foreach ($helpers as $helper) {
             $this->assertTrue(function_exists($helper));
