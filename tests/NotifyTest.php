@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Notification;
 
 class NotifyTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->loadLaravelMigrations(['--database' => 'testbench']);
