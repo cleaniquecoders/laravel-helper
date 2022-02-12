@@ -53,14 +53,14 @@ class NotifyTest extends TestCase
         Notification::fake();
 
         $user = User::create([
-            'name'     => 'Laravel Helper',
-            'email'    => 'laravel-helper@cleaniquecoders.com',
+            'name' => 'Laravel Helper',
+            'email' => 'laravel-helper@cleaniquecoders.com',
             'password' => bcrypt('password'),
         ]);
 
         $user2 = User::create([
-            'name'     => 'Laravel Helper',
-            'email'    => 'laravel-helper-two@cleaniquecoders.com',
+            'name' => 'Laravel Helper',
+            'email' => 'laravel-helper-two@cleaniquecoders.com',
             'password' => bcrypt('password'),
         ]);
 
@@ -69,19 +69,21 @@ class NotifyTest extends TestCase
         Notification::assertSentTo(
             $user,
             N::class,
-            function($notification, $channels) use ($user) {
+            function ($notification, $channels) use ($user) {
                 return 'Laravel Helper' == $notification->subject && 'Send notification with notify helper.' == $notification->content;
             }
         );
 
         // Assert a notification was sent to the given users...
         Notification::assertSentTo(
-            [$user], N::class
+            [$user],
+            N::class
         );
 
         // Assert a notification was not sent...
         Notification::assertNotSentTo(
-            [$user2], N::class
+            [$user2],
+            N::class
         );
     }
 
@@ -96,9 +98,9 @@ class NotifyTest extends TestCase
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
     }
 }

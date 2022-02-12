@@ -18,7 +18,8 @@ class LaravelHelperServiceProvider extends ServiceProvider
             __DIR__ . '/../config/helper.php' => config_path('helper.php'),
         ], 'laravel-helper-config');
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/helper.php', 'helper'
+            __DIR__ . '/../config/helper.php',
+            'helper'
         );
 
         /*

@@ -26,14 +26,15 @@ if (! function_exists('abbrv')) {
         $value = str_replace(
             config('helper.abbrv.remove_vowels'),
             '',
-            $value);
+            $value
+        );
 
         if (true === config('helper.abbrv.to_uppercase')) {
             $value = strtoupper($value);
         }
 
         if (true == config('helper.abbrv.unique_characters') || true == $unique_characters) {
-            $split             = str_split($value);
+            $split = str_split($value);
             $unique_characters = [];
             foreach ($split as $character) {
                 if (! in_array($character, $unique_characters)) {
@@ -102,22 +103,22 @@ if (! function_exists('minify')) {
     {
         $replace = [
             '/<!--[^\[](.*?)[^\]]-->/s' => '',
-            "/<\?php/"                  => '<?php ',
-            "/\n([\S])/"                => '$1',
-            "/\r/"                      => '',
-            "/\n/"                      => '',
-            "/\t/"                      => '',
-            '/ +/'                      => ' ',
+            "/<\?php/" => '<?php ',
+            "/\n([\S])/" => '$1',
+            "/\r/" => '',
+            "/\n/" => '',
+            "/\t/" => '',
+            '/ +/' => ' ',
         ];
 
         if (false !== strpos($value, '<pre>')) {
             $replace = [
                 '/<!--[^\[](.*?)[^\]]-->/s' => '',
-                "/<\?php/"                  => '<?php ',
-                "/\r/"                      => '',
-                "/>\n</"                    => '><',
-                "/>\s+\n</"                 => '><',
-                "/>\n\s+</"                 => '><',
+                "/<\?php/" => '<?php ',
+                "/\r/" => '',
+                "/>\n</" => '><',
+                "/>\s+\n</" => '><',
+                "/>\n\s+</" => '><',
             ];
         }
 

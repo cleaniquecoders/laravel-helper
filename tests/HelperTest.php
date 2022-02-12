@@ -30,9 +30,9 @@ class HelperTest extends TestCase
     public function abbrv_test()
     {
         $data = [
-            'your word'        => 'YRWD',
+            'your word' => 'YRWD',
             'Cleanique Coders' => 'CLNQDRS',
-            'Laravel Helper'   => 'LRVHP',
+            'Laravel Helper' => 'LRVHP',
         ];
         foreach ($data as $word => $expected) {
             $actual = abbrv($word);

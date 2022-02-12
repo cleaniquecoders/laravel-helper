@@ -22,7 +22,7 @@ class MinifyHelperTest extends TestCase
 	</body>
 </html>';
         $expected = '<html><head><title>Laravel Helper</title></head><body><h1>Laravel Helper</h1></body></html>';
-        $actual   = minify($content);
+        $actual = minify($content);
         $this->assertEquals($expected, $actual);
     }
 }

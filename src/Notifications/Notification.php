@@ -24,20 +24,24 @@ class Notification extends BaseNotification
      * Create a new notification instance.
      */
     public function __construct(
-        $subject, $content,
-        $link = null, $link_label = null,
-        $data = null, $attachments = null,
-        $cc = null, $bcc = null,
+        $subject,
+        $content,
+        $link = null,
+        $link_label = null,
+        $data = null,
+        $attachments = null,
+        $cc = null,
+        $bcc = null,
         $template = 'mail.notification'
     ) {
-        $this->subject     = $subject;
-        $this->content     = $content;
-        $this->link        = $link;
-        $this->link_label  = $link_label;
-        $this->data        = $data;
-        $this->template    = $template;
-        $this->cc          = $cc;
-        $this->bcc         = $bcc;
+        $this->subject = $subject;
+        $this->content = $content;
+        $this->link = $link;
+        $this->link_label = $link_label;
+        $this->data = $data;
+        $this->template = $template;
+        $this->cc = $cc;
+        $this->bcc = $bcc;
         $this->attachments = $attachments;
     }
 
@@ -65,11 +69,11 @@ class Notification extends BaseNotification
         $mail = (new MailMessage())
             ->subject($this->subject)
             ->markdown($this->template, [
-                'subject'    => $this->subject,
-                'content'    => $this->content,
-                'link'       => $this->link,
+                'subject' => $this->subject,
+                'content' => $this->content,
+                'link' => $this->link,
                 'link_label' => $this->link_label,
-                'data'       => $this->data,
+                'data' => $this->data,
             ]);
 
         if ($this->cc) {
@@ -103,14 +107,14 @@ class Notification extends BaseNotification
     public function toArray($notifiable)
     {
         return [
-            'subject'     => $this->subject,
-            'content'     => $this->content,
-            'link'        => $this->link,
-            'link_label'  => $this->link_label,
-            'data'        => $this->data,
-            'template'    => $this->template,
-            'cc'          => $this->cc,
-            'bcc'         => $this->bcc,
+            'subject' => $this->subject,
+            'content' => $this->content,
+            'link' => $this->link,
+            'link_label' => $this->link_label,
+            'data' => $this->data,
+            'template' => $this->template,
+            'cc' => $this->cc,
+            'bcc' => $this->bcc,
             'attachments' => $this->attachments,
         ];
     }
