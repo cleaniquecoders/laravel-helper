@@ -11,13 +11,21 @@ class Notification extends BaseNotification
     use Queueable;
 
     public $subject;
+
     public $content;
+
     public $link;
+
     public $link_label;
+
     public $data;
+
     public $template;
+
     public $cc;
+
     public $bcc;
+
     public $attachments;
 
     /**
@@ -48,8 +56,7 @@ class Notification extends BaseNotification
     /**
      * Get the notification's delivery channels.
      *
-     * @param mixed $notifiable
-     *
+     * @param  mixed  $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -60,8 +67,7 @@ class Notification extends BaseNotification
     /**
      * Get the mail representation of the notification.
      *
-     * @param mixed $notifiable
-     *
+     * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -100,8 +106,7 @@ class Notification extends BaseNotification
     /**
      * Get the array representation of the notification.
      *
-     * @param mixed $notifiable
-     *
+     * @param  mixed  $notifiable
      * @return array
      */
     public function toArray($notifiable)

@@ -44,7 +44,7 @@ class NotifyTest extends TestCase
     /** @test */
     public function it_has_notification_default_view()
     {
-        $this->assertFileExists(__DIR__ . '/../views/mail/notification.blade.php');
+        $this->assertFileExists(__DIR__.'/../views/mail/notification.blade.php');
     }
 
     /** @test */
@@ -69,7 +69,7 @@ class NotifyTest extends TestCase
         Notification::assertSentTo(
             $user,
             N::class,
-            function ($notification, $channels) use ($user) {
+            function ($notification, $channels) {
                 return 'Laravel Helper' == $notification->subject && 'Send notification with notify helper.' == $notification->content;
             }
         );
@@ -90,7 +90,7 @@ class NotifyTest extends TestCase
     /**
      * Define environment setup.
      *
-     * @param \Illuminate\Foundation\Application $app
+     * @param  \Illuminate\Foundation\Application  $app
      */
     protected function getEnvironmentSetUp($app)
     {

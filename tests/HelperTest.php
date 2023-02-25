@@ -7,13 +7,13 @@ class HelperTest extends TestCase
     /** @test */
     public function it_has_helper_file()
     {
-        $this->assertFileExists(dirname(dirname(__FILE__)) . '/src/Support/helpers.php');
+        $this->assertFileExists(dirname(dirname(__FILE__)).'/src/Support/helpers.php');
     }
 
     /** @test */
     public function it_has_helper_config_file()
     {
-        $this->assertFileExists(dirname(dirname(__FILE__)) . '/config/helper.php');
+        $this->assertFileExists(dirname(dirname(__FILE__)).'/config/helper.php');
     }
 
     /** @test */

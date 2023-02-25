@@ -7,14 +7,23 @@ use CleaniqueCoders\LaravelHelper\Notifications\Notification;
 class NotificationService
 {
     public $user;
+
     public $subject;
+
     public $content;
+
     public $link;
+
     public $link_label;
+
     public $data;
+
     public $template = 'laravel-helper::mail.notification';
+
     public $cc;
+
     public $bcc;
+
     public $attachments;
 
     public function __construct($identifier, $column = 'id')
